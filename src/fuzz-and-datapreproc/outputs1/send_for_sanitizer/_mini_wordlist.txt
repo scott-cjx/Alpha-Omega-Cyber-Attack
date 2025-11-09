@@ -1,0 +1,6 @@
+admin
+config
+login
+uploads
+api
+static

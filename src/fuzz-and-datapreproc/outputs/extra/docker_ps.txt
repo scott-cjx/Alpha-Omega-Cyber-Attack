@@ -1,0 +1,2 @@
+9c8d31c0776a zap-demo zaproxy/zap-stable:latest 
+c44491122405 juice-shop bkimminich/juice-shop 0.0.0.0:3000->3000/tcp, :::3000->3000/tcp

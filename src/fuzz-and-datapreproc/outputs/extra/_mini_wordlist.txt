@@ -1,0 +1,9 @@
+admin
+config
+login
+uploads
+static
+api
+rest
+assets
+favicon.ico

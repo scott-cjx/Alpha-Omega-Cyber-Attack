@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyber_attatech"
+dynamic = ["version"]
+description = ""
+readme = "docs/README.md"
+requires-python = "<3.14"
+license = {text = "MIT"}
+authors = [
+    {name = "Scott CJX", email = "scottcjx.edu@gmail.com"},
+]
+dependencies = [
+    "streamlit",
+    "plotly",
+    "pandas",
+    "numpy",
+    "snowflake"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

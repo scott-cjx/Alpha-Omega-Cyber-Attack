@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///nix/store/dv3j75jwhzni9zm6y8k674rxp50j8ddp-nmap-7.98/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.98 scan initiated Sat Nov  8 20:42:40 2025 as: nmap -sS -sV -O -A -p- -T4 -oN ./outputs/nmap_full.txt -oX ./outputs/nmap_full.xml localhost -->
+<nmaprun scanner="nmap" args="nmap -sS -sV -O -A -p- -T4 -oN ./outputs/nmap_full.txt -oX ./outputs/nmap_full.xml localhost" start="1762652560" startstr="Sat Nov  8 20:42:40 2025" version="7.98" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1762652561" endtime="1762652618"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost" type="user"/>
+<hostname name="localhost" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="65531">
+<extrareasons reason="reset" count="65531" proto="tcp" ports="1-21,23-630,632-2999,3001-8089,8091-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="10.0" extrainfo="protocol 2.0" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:10.0</cpe></service></port>
+<port protocol="tcp" portid="631"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ipp" product="CUPS" version="2.4" method="probed" conf="10"><cpe>cpe:/a:apple:cups:2.4</cpe></service><script id="http-server-header" output="CUPS/2.4 IPP/2.1"><elem>CUPS/2.4 IPP/2.1</elem>
+</script><script id="http-robots.txt" output="1 disallowed entry &#xa;/"/><script id="http-title" output="Home - CUPS 2.4.11"><elem key="title">Home - CUPS 2.4.11</elem>
+</script></port>
+<port protocol="tcp" portid="3000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ppp" servicefp="SF-Port3000-TCP:V=7.98%I=7%D=11/8%Time=690FF19D%P=x86_64-pc-linux-gnu%r(GetRequest,3890,&quot;HTTP/1\.1\x20200\x20OK\r\nAccess-Control-Allow-Origin:\x20\*\r\nX-Content-Type-Options:\x20nosniff\r\nX-Frame-Options:\x20SAMEORIGIN\r\nFeature-Policy:\x20payment\x20&apos;self&apos;\r\nX-Recruiting:\x20/#/jobs\r\nAccept-Ranges:\x20bytes\r\nCache-Control:\x20public,\x20max-age=0\r\nLast-Modified:\x20Sun,\x2009\x20Nov\x202025\x2001:22:04\x20GMT\r\nETag:\x20W/\&quot;124fa-19a6634c09a\&quot;\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nContent-Length:\x2075002\r\nVary:\x20Accept-Encoding\r\nDate:\x20Sun,\x2009\x20Nov\x202025\x2001:42:53\x20GMT\r\nConnection:\x20close\r\n\r\n&lt;!-&#45;\n\x20\x20~\x20Copyright\x20\(c\)\x202014-2025\x20Bjoern\x20Kimminich\x20&amp;\x20the\x20OWASP\x20Juice\x20Shop\x20contributors\.\n\x20\x20~\x20SPDX-License-Identifier:\x20MIT\n\x20\x20-&#45;&gt;\n\n&lt;!doctype\x20html&gt;\n&lt;html\x20lang=\&quot;en\&quot;\x20data-beasties-container&gt;\n&lt;head&gt;\n\x20\x20&lt;meta\x20charset=\&quot;utf-8\&quot;&gt;\n\x20\x20&lt;title&gt;OWASP\x20Juice\x20Shop&lt;/title&gt;\n\x20\x20&lt;meta\x20name=\&quot;description\&quot;\x20content=\&quot;Probably\x20the\x20most\x20modern\x20and\x20sophisticated\x20insecure\x20web\x20application\&quot;&gt;\n\x20\x20&lt;meta\x20name=\&quot;viewport\&quot;\x20content=\&quot;width=device-width,\x20initial-scale=1\&quot;&gt;\n\x20\x20&lt;link\x20id=\&quot;favicon\&quot;\x20rel=\&quot;icon\&quot;\x20&quot;)%r(Help,2F,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n&quot;)%r(NCP,2F,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n&quot;)%r(HTTPOptions,EA,&quot;HTTP/1\.1\x20204\x20No\x20Content\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Methods:\x20GET,HEAD,PUT,PATCH,POST,DELETE\r\nVary:\x20Access-Control-Request-Headers\r\nContent-Length:\x200\r\nDate:\x20Sun,\x2009\x20Nov\x202025\x2001:42:53\x20GMT\r\nConnection:\x20close\r\n\r\n&quot;)%r(RTSPRequest,EA,&quot;HTTP/1\.1\x20204\x20No\x20Content\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Methods:\x20GET,HEAD,PUT,PATCH,POST,DELETE\r\nVary:\x20Access-Control-Request-Headers\r\nContent-Length:\x200\r\nDate:\x20Sun,\x2009\x20Nov\x202025\x2001:42:53\x20GMT\r\nConnection:\x20close\r\n\r\n&quot;);" method="table" conf="3"/><script id="fingerprint-strings" output="&#xa;  GetRequest: &#xa;    HTTP/1.1 200 OK&#xa;    Access-Control-Allow-Origin: *&#xa;    X-Content-Type-Options: nosniff&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    Feature-Policy: payment &apos;self&apos;&#xa;    X-Recruiting: /#/jobs&#xa;    Accept-Ranges: bytes&#xa;    Cache-Control: public, max-age=0&#xa;    Last-Modified: Sun, 09 Nov 2025 01:22:04 GMT&#xa;    ETag: W/&quot;124fa-19a6634c09a&quot;&#xa;    Content-Type: text/html; charset=UTF-8&#xa;    Content-Length: 75002&#xa;    Vary: Accept-Encoding&#xa;    Date: Sun, 09 Nov 2025 01:42:53 GMT&#xa;    Connection: close&#xa;    &lt;!-&#45;&#xa;    Copyright (c) 2014-2025 Bjoern Kimminich &amp; the OWASP Juice Shop contributors.&#xa;    SPDX-License-Identifier: MIT&#xa;    &lt;!doctype html&gt;&#xa;    &lt;html lang=&quot;en&quot; data-beasties-container&gt;&#xa;    &lt;head&gt;&#xa;    &lt;meta charset=&quot;utf-8&quot;&gt;&#xa;    &lt;title&gt;OWASP Juice Shop&lt;/title&gt;&#xa;    &lt;meta name=&quot;description&quot; content=&quot;Probably the most modern and sophisticated insecure web application&quot;&gt;&#xa;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xa;    &lt;link id=&quot;favicon&quot; rel=&quot;icon&quot;&#xa;  HTTPOptions, RTSPRequest: &#xa;    HTTP/1.1 204 No Content&#xa;    Access-Control-Allow-Origin: *&#xa;    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE&#xa;    Vary: Access-Control-Request-Headers&#xa;    Content-Length: 0&#xa;    Date: Sun, 09 Nov 2025 01:42:53 GMT&#xa;    Connection: close&#xa;  Help, NCP: &#xa;    HTTP/1.1 400 Bad Request&#xa;    Connection: close"><elem key="GetRequest">&#xa;    HTTP/1.1 200 OK&#xa;    Access-Control-Allow-Origin: *&#xa;    X-Content-Type-Options: nosniff&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    Feature-Policy: payment &apos;self&apos;&#xa;    X-Recruiting: /#/jobs&#xa;    Accept-Ranges: bytes&#xa;    Cache-Control: public, max-age=0&#xa;    Last-Modified: Sun, 09 Nov 2025 01:22:04 GMT&#xa;    ETag: W/&quot;124fa-19a6634c09a&quot;&#xa;    Content-Type: text/html; charset=UTF-8&#xa;    Content-Length: 75002&#xa;    Vary: Accept-Encoding&#xa;    Date: Sun, 09 Nov 2025 01:42:53 GMT&#xa;    Connection: close&#xa;    &lt;!-&#45;&#xa;    Copyright (c) 2014-2025 Bjoern Kimminich &amp; the OWASP Juice Shop contributors.&#xa;    SPDX-License-Identifier: MIT&#xa;    &lt;!doctype html&gt;&#xa;    &lt;html lang=&quot;en&quot; data-beasties-container&gt;&#xa;    &lt;head&gt;&#xa;    &lt;meta charset=&quot;utf-8&quot;&gt;&#xa;    &lt;title&gt;OWASP Juice Shop&lt;/title&gt;&#xa;    &lt;meta name=&quot;description&quot; content=&quot;Probably the most modern and sophisticated insecure web application&quot;&gt;&#xa;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xa;    &lt;link id=&quot;favicon&quot; rel=&quot;icon&quot;</elem>
+<elem key="HTTPOptions, RTSPRequest">&#xa;    HTTP/1.1 204 No Content&#xa;    Access-Control-Allow-Origin: *&#xa;    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE&#xa;    Vary: Access-Control-Request-Headers&#xa;    Content-Length: 0&#xa;    Date: Sun, 09 Nov 2025 01:42:53 GMT&#xa;    Connection: close</elem>
+<elem key="Help, NCP">&#xa;    HTTP/1.1 400 Bad Request&#xa;    Connection: close</elem>
+</script></port>
+<port protocol="tcp" portid="8090"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" extrainfo="bad gateway" servicefp="SF-Port8090-TCP:V=7.98%T=SSL%I=7%D=11/8%Time=690FF1AB%P=x86_64-pc-linux-gnu%r(GetRequest,159,&quot;HTTP/1\.1\x20502\x20Bad\x20Gateway\r\ncontent-type:\x20text/plain;\x20charset=UTF-8\r\ncontent-length:\x20255\r\n\r\nAn\x20exception\x20occurred\x20while\x20attempting\x20to\x20connect\x20to:\x20https://null/\nThe\x20exception\x20was:\x20\nnull:\x20Name\x20or\x20service\x20not\x20known\nThe\x20following\x20document\x20may\x20be\x20of\x20assistance\x20in\x20resolving\x20this\x20failure:\nhttps://www\.zaproxy\.org/faq/why-cant-zap-connect-to-my-website/\x20&quot;)%r(HTTPOptions,13E,&quot;HTTP/1\.1\x20502\x20Bad\x20Gateway\r\ncontent-type:\x20text/plain;\x20charset=UTF-8\r\ncontent-length:\x20228\r\n\r\nAn\x20exception\x20occurred\x20while\x20attempting\x20to\x20connect\x20to:\x20https://null/\nThe\x20exception\x20was:\x20\nnull\nThe\x20following\x20document\x20may\x20be\x20of\x20assistance\x20in\x20resolving\x20this\x20failure:\nhttps://www\.zaproxy\.org/faq/why-cant-zap-connect-to-my-website/\x20&quot;)%r(FourOhFourRequest,17C,&quot;HTTP/1\.1\x20502\x20Bad\x20Gateway\r\ncontent-type:\x20text/plain;\x20charset=UTF-8\r\ncontent-length:\x20290\r\n\r\nAn\x20exception\x20occurred\x20while\x20attempting\x20to\x20connect\x20to:\x20https://null/nice%20ports%2C/Tri%6Eity\.txt%2ebak\nThe\x20exception\x20was:\x20\nnull:\x20Name\x20or\x20service\x20not\x20known\nThe\x20following\x20document\x20may\x20be\x20of\x20assistance\x20in\x20resolving\x20this\x20failure:\nhttps://www\.zaproxy\.org/faq/why-cant-zap-connect-to-my-website/\x20&quot;);" tunnel="ssl" method="probed" conf="10"/><script id="ssl-cert" output="Subject: commonName=localhost/organizationName=ZAP/countryName=xx&#xa;Subject Alternative Name: DNS:localhost&#xa;Not valid before: 2025-10-10T01:43:01&#xa;Not valid after:  2026-10-13T01:43:01"><table key="subject">
+<elem key="commonName">localhost</elem>
+<elem key="countryName">xx</elem>
+<elem key="emailAddress">zaproxy-develop@googlegroups.com</elem>
+<elem key="organizationName">ZAP</elem>
+<elem key="organizationalUnitName">Zed Attack Proxy Project</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">Zed Attack Proxy Root CA</elem>
+<elem key="countryName">xx</elem>
+<elem key="localityName">1d6291b850228</elem>
+<elem key="organizationName">ZAP Root CA</elem>
+<elem key="organizationalUnitName">ZAP Root CA</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">CBDE8856DED59ECE991904496C4F658EE59CAE3C065427CE53B91021DF85ABA5378E60BC8DC8337C91FE39FC026728FBA73B1D4E176636C8F1A1D9A16C9EDB925D762BFAD4B966DE6B43EBC388608BF4D7E8E673A7D21785C9941EB7EB3C19D3A681223BFF26BF8C927D73B91F466CF75E738F999285583260FB89B785210FCEADA7265B06D9119EE150D584B66C0954B12C76BF5D506E2A03D51AA54FB62845C906CF5B023CEDA140D2AB4D04DB3713704A6DA8E581ACADB3D6D71353DB7F2FAFF38807E7DCB17E015DB1196D8AAB9476EAF62E4B02E62F189A86FF24B94021DAA56EEB9017DA44DFAC412232488B6C860997027568858F029B5127EF01164B</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">30:82:01:22:30:0D:06:09:2A:86:48:86:F7:0D:01:01:01:05:00:03:82:01:0F:00:30:82:01:0A:02:82:01:01:00:CB:DE:88:56:DE:D5:9E:CE:99:19:04:49:6C:4F:65:8E:E5:9C:AE:3C:06:54:27:CE:53:B9:10:21:DF:85:AB:A5:37:8E:60:BC:8D:C8:33:7C:91:FE:39:FC:02:67:28:FB:A7:3B:1D:4E:17:66:36:C8:F1:A1:D9:A1:6C:9E:DB:92:5D:76:2B:FA:D4:B9:66:DE:6B:43:EB:C3:88:60:8B:F4:D7:E8:E6:73:A7:D2:17:85:C9:94:1E:B7:EB:3C:19:D3:A6:81:22:3B:FF:26:BF:8C:92:7D:73:B9:1F:46:6C:F7:5E:73:8F:99:92:85:58:32:60:FB:89:B7:85:21:0F:CE:AD:A7:26:5B:06:D9:11:9E:E1:50:D5:84:B6:6C:09:54:B1:2C:76:BF:5D:50:6E:2A:03:D5:1A:A5:4F:B6:28:45:C9:06:CF:5B:02:3C:ED:A1:40:D2:AB:4D:04:DB:37:13:70:4A:6D:A8:E5:81:AC:AD:B3:D6:D7:13:53:DB:7F:2F:AF:F3:88:07:E7:DC:B1:7E:01:5D:B1:19:6D:8A:AB:94:76:EA:F6:2E:4B:02:E6:2F:18:9A:86:FF:24:B9:40:21:DA:A5:6E:EB:90:17:DA:44:DF:AC:41:22:32:48:8B:6C:86:09:97:02:75:68:85:8F:02:9B:51:27:EF:01:16:4B:02:03:01:00:01</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:localhost</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-10-10T01:43:01</elem>
+<elem key="notAfter">2026-10-13T01:43:01</elem>
+</table>
+<elem key="md5">adc832a0bf2cf3daa2b83d4a9399ea2b</elem>
+<elem key="sha1">77ff8e6313aff7d0c38175ff2071daea9cc54be4</elem>
+<elem key="sha256">a0411fdd003536ad957d5bbf7220ebd9c44e8d2fcef61937bf3d38c09b212b6b</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIE7DCCA9SgAwIBAgIHANy7UlReCDANBgkqhkiG9w0BAQsFADB0MSEwHwYDVQQD&#xa;DBhaZWQgQXR0YWNrIFByb3h5IFJvb3QgQ0ExFjAUBgNVBAcMDTFkNjI5MWI4NTAy&#xa;MjgxFDASBgNVBAoMC1pBUCBSb290IENBMRQwEgYDVQQLDAtaQVAgUm9vdCBDQTEL&#xa;MAkGA1UEBhMCeHgwHhcNMjUxMDEwMDE0MzAxWhcNMjYxMDEzMDE0MzAxWjCBgzES&#xa;MBAGA1UEAwwJbG9jYWxob3N0MSEwHwYDVQQLDBhaZWQgQXR0YWNrIFByb3h5IFBy&#xa;b2plY3QxDDAKBgNVBAoMA1pBUDELMAkGA1UEBhMCeHgxLzAtBgkqhkiG9w0BCQEW&#xa;IHphcHJveHktZGV2ZWxvcEBnb29nbGVncm91cHMuY29tMIIBIjANBgkqhkiG9w0B&#xa;AQEFAAOCAQ8AMIIBCgKCAQEAy96IVt7Vns6ZGQRJbE9ljuWcrjwGVCfOU7kQId+F&#xa;q6U3jmC8jcgzfJH+OfwCZyj7pzsdThdmNsjxodmhbJ7bkl12K/rUuWbea0Prw4hg&#xa;i/TX6OZzp9IXhcmUHrfrPBnTpoEiO/8mv4ySfXO5H0Zs915zj5mShVgyYPuJt4Uh&#xa;D86tpyZbBtkRnuFQ1YS2bAlUsSx2v11QbioD1RqlT7YoRckGz1sCPO2hQNKrTQTb&#xa;NxNwSm2o5YGsrbPW1xNT238vr/OIB+fcsX4BXbEZbYqrlHbq9i5LAuYvGJqG/yS5&#xa;QCHapW7rkBfaRN+sQSIySItshgmXAnVohY8Cm1En7wEWSwIDAQABo4IBcTCCAW0w&#xa;ggEzBgNVHQ4EggEqBIIBJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB&#xa;AMveiFbe1Z7OmRkESWxPZY7lnK48BlQnzlO5ECHfhaulN45gvI3IM3yR/jn8Amco&#xa;+6c7HU4XZjbI8aHZoWye25Jddiv61Llm3mtD68OIYIv01+jmc6fSF4XJlB636zwZ&#xa;06aBIjv/Jr+Mkn1zuR9GbPdec4+ZkoVYMmD7ibeFIQ/OracmWwbZEZ7hUNWEtmwJ&#xa;VLEsdr9dUG4qA9UapU+2KEXJBs9bAjztoUDSq00E2zcTcEptqOWBrK2z1tcTU9t/&#xa;L6/ziAfn3LF+AV2xGW2Kq5R26vYuSwLmLxiahv8kuUAh2qVu65AX2kTfrEEiMkiL&#xa;bIYJlwJ1aIWPAptRJ+8BFksCAwEAATAJBgNVHRMEAjAAMBMGA1UdJQQMMAoGCCsG&#xa;AQUFBwMBMBQGA1UdEQQNMAuCCWxvY2FsaG9zdDANBgkqhkiG9w0BAQsFAAOCAQEA&#xa;fWhY+wTjov+f5ZvKlPq0PphoLi0mmVUotUzmhXIQOVodhTpYseHgXwIObg0KVLm6&#xa;rbPiRcsqNhZAxQCulBX0MQGa7ivJGw8eLA13z/pDD2NuJmrP8sYVJMpSm+j4IPcn&#xa;/T2S4Os13Mrys8iyMv7hAxGrrxubsN8rKgzwl2CL7Hpd3XOAGt7EGTEfwpJJHIDi&#xa;H/gJ4WhP++eXqfn2YKvxhgeVT1mOaHMAyU/MitKwo6q9Ys0OaOAG4J4AO2gGOWzU&#xa;mAUhgzDxuKdzmzRCFaDTXuTgma4M1pgmZHJ+vcEmdoAWIG47wBiCF3KGK1YnnTpd&#xa;YBgCWBulVKmGaiAegeVHlg==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="fingerprint-strings" output="&#xa;  FourOhFourRequest: &#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 290&#xa;    exception occurred while attempting to connect to: https://null/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    exception was: &#xa;    null: Name or service not known&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/&#xa;  GetRequest: &#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 255&#xa;    exception occurred while attempting to connect to: https://null/&#xa;    exception was: &#xa;    null: Name or service not known&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/&#xa;  HTTPOptions: &#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 228&#xa;    exception occurred while attempting to connect to: https://null/&#xa;    exception was: &#xa;    null&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/"><elem key="FourOhFourRequest">&#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 290&#xa;    exception occurred while attempting to connect to: https://null/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    exception was: &#xa;    null: Name or service not known&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/</elem>
+<elem key="GetRequest">&#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 255&#xa;    exception occurred while attempting to connect to: https://null/&#xa;    exception was: &#xa;    null: Name or service not known&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/</elem>
+<elem key="HTTPOptions">&#xa;    HTTP/1.1 502 Bad Gateway&#xa;    content-type: text/plain; charset=UTF-8&#xa;    content-length: 228&#xa;    exception occurred while attempting to connect to: https://null/&#xa;    exception was: &#xa;    null&#xa;    following document may be of assistance in resolving this failure:&#xa;    https://www.zaproxy.org/faq/why-cant-zap-connect-to-my-website/</elem>
+</script><script id="tls-alpn" output="&#xa;  http/1.1&#xa;  h2"><elem>http/1.1</elem>
+<elem>h2</elem>
+</script><script id="http-open-proxy" output="Potentially OPEN proxy.&#xa;Methods supported: GET HEAD CONNECTION"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="35104"/>
+<osmatch name="Linux 5.0 - 6.2" accuracy="100" line="71749">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="6.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:6</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="2456465" lastboot="Sat Oct 11 11:22:33 2025"/>
+<distance value="0"/>
+<tcpsequence index="255" difficulty="Good luck!" values="296450F3,172FC1D8,4EA6BF81,6CCFB9FF,AAEE4CBC,F66B017C"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="926A8FC0,926A9025,926A9089,926A90EE,926A9152,926A91B7"/>
+<times srtt="110" rttvar="28" to="100000"/>
+</host>
+<runstats><finished time="1762652618" timestr="Sat Nov  8 20:43:38 2025" summary="Nmap done at Sat Nov  8 20:43:38 2025; 1 IP address (1 host up) scanned in 57.67 seconds" elapsed="57.67" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

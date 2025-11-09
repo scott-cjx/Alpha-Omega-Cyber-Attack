@@ -1,0 +1,74 @@
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=rbs version=3.4.0 platform=ruby> because it is missing extensions
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=racc version=1.7.3 platform=ruby> because it is missing extensions
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=debug version=1.9.2 platform=ruby> because it is missing extensions
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=rbs version=3.4.0 platform=ruby> because it is missing extensions
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=racc version=1.7.3 platform=ruby> because it is missing extensions
+Source locally installed gems is ignoring #<Bundler::StubSpecification name=debug version=1.9.2 platform=ruby> because it is missing extensions
+/nix/store/dnciyv3zw5hz3cgjkl60cklggpyq1wbl-whatweb-0.5.5/share/whatweb/whatweb:37: warning: getoptlong was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
+You can add getoptlong to your Gemfile or gemspec to silence this warning.
+/nix/store/dnciyv3zw5hz3cgjkl60cklggpyq1wbl-whatweb-0.5.5/share/whatweb/lib/whatweb.rb:42: warning: base64 was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
+You can add base64 to your Gemfile or gemspec to silence this warning.
+/nix/store/4p4fmm589k28zbdkwsxn1nghv3f6wh10-ruby3.3-bson-4.14.1/lib/ruby/gems/3.3.0/gems/bson-4.14.1/lib/bson.rb:76: warning: bigdecimal was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
+You can add bigdecimal to your Gemfile or gemspec to silence this warning.
+WhatWeb report for [1m[34mhttp://localhost:3000[0m
+Status    : 200 OK
+Title     : [1m[33mOWASP Juice Shop[0m
+IP        : <Unknown>
+Country   : [1m[31m<Unknown>[0m
+
+Summary   : [1mHTML5[0m, [1mJQuery[0m[[1m[32m2.2.4[0m], [1mScript[0m[[0m[22mmodule[0m], [1mUncommonHeaders[0m[[0m[22maccess-control-allow-origin,x-content-type-options,feature-policy,x-recruiting[0m], [1mX-Frame-Options[0m[[0m[22mSAMEORIGIN[0m]
+
+Detected Plugins:
+[ [1mHTML5[0m ]
+	HTML version 5, detected by the doctype declaration 
+
+
+[ [1mJQuery[0m ]
+	A fast, concise, JavaScript that simplifies how to traverse 
+	HTML documents, handle events, perform animations, and add 
+	AJAX. 
+
+	Version      : [1m[32m2.2.4[0m
+	Website     : http://jquery.com/
+
+[ [1mScript[0m ]
+	This plugin detects instances of script HTML elements and 
+	returns the script language/type. 
+
+	String       : [1m[36mmodule[0m
+
+[ [1mUncommonHeaders[0m ]
+	Uncommon HTTP server headers. The blacklist includes all 
+	the standard headers and many non standard but common ones. 
+	Interesting but fairly common headers should have their own 
+	plugins, eg. x-powered-by, server and x-aspnet-version. 
+	Info about headers can be found at www.http-stats.com 
+
+	String       : [1m[36maccess-control-allow-origin,x-content-type-options,feature-policy,x-recruiting[0m (from headers)
+
+[ [1mX-Frame-Options[0m ]
+	This plugin retrieves the X-Frame-Options value from the 
+	HTTP header. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc288472%28VS.85%29.
+	aspx
+
+	String       : [1m[36mSAMEORIGIN[0m
+
+HTTP Headers:
+	HTTP/1.1 200 OK
+	Access-Control-Allow-Origin: *
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: SAMEORIGIN
+	Feature-Policy: payment 'self'
+	X-Recruiting: /#/jobs
+	Accept-Ranges: bytes
+	Cache-Control: public, max-age=0
+	Last-Modified: Sun, 09 Nov 2025 01:22:04 GMT
+	ETag: W/"124fa-19a6634c09a"
+	Content-Type: text/html; charset=UTF-8
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+	Date: Sun, 09 Nov 2025 01:43:39 GMT
+	Connection: close
+	Transfer-Encoding: chunked
+	

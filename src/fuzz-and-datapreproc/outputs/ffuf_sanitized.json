@@ -1,0 +1,79 @@
+[
+  {
+    "path_token": "assets",
+    "ffuf_hash": "07af58",
+    "status": 301,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 156,
+    "words": 6,
+    "lines": 11,
+    "duration_ms": 33.261,
+    "url_sha256": "ccc76789ad0c9459c2fe8f41d3b66175ea10ff50ff181bc0fb5575b8c6e064c5"
+  },
+  {
+    "path_token": "login",
+    "ffuf_hash": "07af53",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 18.418,
+    "url_sha256": "f6e1dc9e721b0162f8cc5f6fd623692a9d9dea51b5d61bde2b5387d896bffd31"
+  },
+  {
+    "path_token": "config",
+    "ffuf_hash": "07af52",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 21.877,
+    "url_sha256": "5b939a920da121d015a9942e4d90457e33058a146c4800403158fd98381274fb"
+  },
+  {
+    "path_token": "admin",
+    "ffuf_hash": "07af51",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 31.408,
+    "url_sha256": "e33764448c5a31b7536b549464940d7e22d8ccbc26a1d0ab17433db621ede338"
+  },
+  {
+    "path_token": "static",
+    "ffuf_hash": "07af55",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 33.343,
+    "url_sha256": "ba8c2c7e8f29b62c1b419f32e0c8b65875f8fccee0710cb89a4ac5d8bb5d1412"
+  },
+  {
+    "path_token": "uploads",
+    "ffuf_hash": "07af54",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 36.804,
+    "url_sha256": "8b22fe577467c68a273d8a9de778e3f412f8ab5d7bacd4705731ce6a9a750479"
+  },
+  {
+    "path_token": "favicon.ico",
+    "ffuf_hash": "07af59",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "length": 75002,
+    "words": 3681,
+    "lines": 34,
+    "duration_ms": 37.552,
+    "url_sha256": "28654ba949e75b80753f8752a51780502e7c403bc1a9d222b183548279e460de"
+  }
+]

@@ -1,0 +1,9 @@
+Sanitized package - produced by top_level_scan.sh
+Files included (already sanitized, safe for AI ingestion):
+- nmap_full.xml
+- whatweb.json
+- nikto.txt
+- ffuf_sanitized.json
+- semgrep.json (if present)
+- sbom.json (if present)
+- resp_snippet.txt
