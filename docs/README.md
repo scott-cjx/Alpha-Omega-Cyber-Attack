@@ -1,6 +1,6 @@
 # Alpha and Omega Cyber Attack
 
-The Beginning and the next new 0-day network exploits.
+The Beginning and the end for new 0-day network exploits.
 
 
 # Overview
