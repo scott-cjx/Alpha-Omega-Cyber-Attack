@@ -1,0 +1,2017 @@
+{
+  "name": "Create a table, and insert and update data in the table in Snowflake",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        10592
+      ],
+      "id": "03f1abb4-b462-4ad5-95e2-3bd7c8e44a4c",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "Bt3EUFbJTX9CFdOq",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2752,
+        8784
+      ],
+      "id": "baefed7f-d59f-4a4f-ad62-c6dd219d7200",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "lOxsmDXvWeOJqiBO",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Manual, Semi-Automated, Fully-Automated, Chained, Social-Driven",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        10528
+      ],
+      "id": "c1141b44-3c95-4b76-9a37-4717b0d604c3",
+      "name": "exploitation_methods"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Low Risk, Medium Risk, High Risk, Critical Risk",
+          "systemPromptTemplate": "=You are highly intelligent and accurate sentiment analyzer. Analyze the sentiment of the provided text. Categorize it into 1 of the following based on vulnerability score: {categories}. When categorizing, explain why you chose what you did, as well as how this could be exploited. Use the provided formatting instructions. Only output the JSON.",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        10080
+      ],
+      "id": "0d239e04-8564-45ed-8296-2f8f51467364",
+      "name": "risk_level",
+      "notesInFlow": false
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Patch Available, Workaround, Manual Fix, No Fix, Deprecated",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        9168
+      ],
+      "id": "90fc79ed-40c3-43fe-a2ca-58e4baf8c142",
+      "name": "remediation"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Software Vulnerability, Network Vulnerability, Hardware Vulnerability, Human Error, Procedural Error",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        8432
+      ],
+      "id": "6d468573-59b6-4de4-88d9-4cff13804ae2",
+      "name": "vulnerability_categories"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Network, Local, Physical, Social Engineering, Supply Chain, Application-Layer, Misconfiguration, Chained/Multi-Stage, Credential-based, Side-channel",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        10816
+      ],
+      "id": "b29270bb-dd29-4858-a786-2a75fcfe4c85",
+      "name": "attack_vectors"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Network Services, Web Applications/APIs, Client Software & Endpoints, Cloud Config & Storage, Third-Party Components, Identity & Access Management, CI/CD & Build Chain, IoT/Embedded Interfaces, Configuration & Secrets, Physical Facilities",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        8720
+      ],
+      "id": "a62c9ec0-b405-4c3d-9e6c-60a910052a2e",
+      "name": "attack_surfaces"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Reconnaissance, Initial Access, Execution, Persistence, Privilege Escalation, Lateral Movement, Command & Control, Exfiltration, Impact/Objective",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        9456
+      ],
+      "id": "7b1952b6-8e74-4df5-96df-1e96d81f9862",
+      "name": "attack_chain"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Identity, Configuration & Secrets, Sensitive Data, Privileged Infrastructure, Network & Perimeter, Cloud Controls & IAM, Supply Chain & Dependencies, Endpoints & Hosts, Telemetry & Detection, Physical Access, Backups & Recovery, Admin Interfaces",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        7888
+      ],
+      "id": "19492d39-89cd-4413-a2fc-fa8a5b90377c",
+      "name": "pressure_points"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        3568,
+        12064
+      ],
+      "id": "5301e23a-f303-4334-8683-0c46dbecd1a8",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "Bt3EUFbJTX9CFdOq",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        9552
+      ],
+      "id": "567acd7c-4fb4-4977-a19f-fb035edfc278",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        9216
+      ],
+      "id": "d374acc9-b972-42f0-a505-4eb86d615503",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        8480
+      ],
+      "id": "e11f47c3-1806-4c22-9c9b-a77b5f0df491",
+      "name": "Aggregate2"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        8848
+      ],
+      "id": "2b852bc0-ce69-40f0-ac54-264ba31f4ac3",
+      "name": "Aggregate3"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        10944
+      ],
+      "id": "b8dc7fcf-6bff-482f-b63a-bcf0f795b4ab",
+      "name": "Aggregate4"
+    },
+    {
+      "parameters": {
+        "aggregate": "=aggregateAllItemData",
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "destinationFieldName": "=data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3856,
+        8032
+      ],
+      "id": "3b5c304d-1be0-4a8c-a0a5-c072d8c0809e",
+      "name": "Aggregate5",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3856,
+        11648
+      ],
+      "id": "92c8e38f-f2f6-458a-949a-259ed35a1b1b",
+      "name": "Aggregate6"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        10112
+      ],
+      "id": "6b637e38-7f4d-4acb-a82d-ceb21ab6b26d",
+      "name": "Aggregate7"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        10576
+      ],
+      "id": "287fe234-40ab-4a48-88c4-1119b6c13501",
+      "name": "Aggregate8"
+    },
+    {
+      "parameters": {
+        "numberInputs": 9
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4624,
+        9344
+      ],
+      "id": "2b704771-0808-478a-8141-ad89fa0011e0",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Create the schema inside it\nCREATE SCHEMA IF NOT EXISTS our_db.automation\n    COMMENT = 'Schema for n8n data flows and integrations';"
+      },
+      "type": "n8n-nodes-base.snowflake",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        10336
+      ],
+      "id": "607c6192-a5ad-4cd2-a641-f66aee1e3fde",
+      "name": "Snowflake",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [
+            {
+              "name": "id",
+              "value": 1
+            }
+          ],
+          "string": [
+            {
+              "name": "name",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3264,
+        12496
+      ],
+      "typeVersion": 1,
+      "id": "ed0d2bfb-4bb5-4220-be95-3ae98e48f5c6"
+    },
+    {
+      "parameters": {
+        "table": "docs",
+        "columns": "id, name"
+      },
+      "name": "Snowflake1",
+      "type": "n8n-nodes-base.snowflake",
+      "position": [
+        3488,
+        12496
+      ],
+      "typeVersion": 1,
+      "id": "88b2fdd2-45b5-482b-8c7b-18fe1b8dec84",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [
+            {
+              "name": "id",
+              "value": 1
+            }
+          ],
+          "string": [
+            {
+              "name": "name",
+              "value": "nodemation"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3712,
+        12496
+      ],
+      "typeVersion": 1,
+      "id": "528e7584-7969-4bc1-bd73-63141dd13cbc"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": "={{$node[\"Snowflake1\"].parameter[\"table\"]}}",
+        "columns": "name"
+      },
+      "name": "Snowflake2",
+      "type": "n8n-nodes-base.snowflake",
+      "position": [
+        3936,
+        12496
+      ],
+      "typeVersion": 1,
+      "id": "5d4bf90a-0e0d-4e73-9ee9-7a4c5fd98f05",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Create the database (if not already created)\nCREATE DATABASE IF NOT EXISTS our_db\n    COMMENT = 'Database for n8n workflow automation';\n"
+      },
+      "name": "Snowflake3",
+      "type": "n8n-nodes-base.snowflake",
+      "position": [
+        3552,
+        10336
+      ],
+      "typeVersion": 1,
+      "id": "1747a3b0-81c2-4f67-ad2d-693601d94355",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.values().toJsonString()}}",
+        "options": {
+          "categories": "Web API Endpoint, Web Pages/UI, Authentication/SSO, Authorization/ACLs, Databases & Queries, Configuration & Secrets, Third-party Dependencies, Network Services/Ports, Cloud Resources & IAM, CI/CD & Build Artifacts, Supply Chain Components, Endpoints (Clients), Firmware & Embedded, Secret Exposure, Logging & Telemetry, Backups & Snapshots, Administrative Interfaces, Cryptographic Keys & PKI, File Storage & Uploads, Business Logic/Workflow",
+          "includeDetailedResults": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        3488,
+        11264
+      ],
+      "id": "e6c23327-bb32-41ca-80ce-1d55382c901a",
+      "name": "vulnerable_points"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CREATE TABLE IF NOT EXISTS our_db.automation.our_data_table (\"ANALYSIS_TYPE\" VARCHAR, \"NODE_NAME\" VARCHAR, \"ELEMENT\" VARCHAR, \"CVSS_SCORE\" FLOAT, \"CONFIDENCE\" FLOAT);"
+      },
+      "type": "n8n-nodes-base.snowflake",
+      "typeVersion": 1,
+      "position": [
+        4064,
+        10336
+      ],
+      "id": "2a304474-5ac5-4645-af02-27e7605fd2c1",
+      "name": "Snowflake5",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Transform merged sentiment analysis data into tabular format\nconst results = [];\n\n// Iterate through all input items\nfor (const item of $input.all()) {\n  // Check if item has data array\n  if (item.json.data && Array.isArray(item.json.data)) {\n    // Get the first element to determine the analysis type\n    const firstDataItem = item.json.data[0];\n    \n    if (firstDataItem && firstDataItem.sentimentAnalysis) {\n      // Extract analysis type from the context or use a counter\n      // Since we don't have explicit type info, we'll infer from position\n      const analysisTypes = [\n        'Pressure Points',\n        'Attack Surfaces', \n        'Vulnerability Categories',\n        'Remediation',\n        'Attack Chain',\n        'Risk Level',\n        'Exploitation Methods',\n        'Attack Vectors',\n        'Vulnerable Points'\n      ];\n      \n      // Mapping of analysis types to their corresponding node names\n      const nodeNameMapping = {\n        'Pressure Points': 'pressure_points',\n        'Attack Surfaces': 'attack_surfaces',\n        'Vulnerability Categories': 'vulnerability_categories',\n        'Remediation': 'remediation',\n        'Attack Chain': 'attack_chain',\n        'Risk Level': 'risk_level',\n        'Exploitation Methods': 'exploitation_methods',\n        'Attack Vectors': 'attack_vectors',\n        'Vulnerable Points': 'vulnerable_points'\n      };\n      \n      // Use item index to determine type\n      const itemIndex = $input.all().indexOf(item);\n      const analysisType = analysisTypes[itemIndex] || `Analysis ${itemIndex + 1}`;\n      \n      // Get the node name from mapping or try to extract from metadata\n      let nodeName = nodeNameMapping[analysisType] || `node_${itemIndex + 1}`;\n      \n      // Try to extract node name from metadata if available\n      if (firstDataItem.pairedItem && firstDataItem.pairedItem.item !== undefined) {\n        const sourceItem = $input.all()[firstDataItem.pairedItem.item];\n        if (sourceItem && sourceItem.json && sourceItem.json.nodeName) {\n          nodeName = sourceItem.json.nodeName;\n        }\n      }\n      \n      // Create a row for this analysis\n      results.push({\n        json: {\n          'ANALYSIS_TYPE': analysisType,\n          'NODE_NAME': nodeName,\n          'ELEMENT': firstDataItem.sentimentAnalysis.category,\n          'CVSS_SCORE': firstDataItem.sentimentAnalysis.strength * 10,\n          'CONFIDENCE': firstDataItem.sentimentAnalysis.confidence\n        }\n      });\n    }\n  }\n}\n\nreturn results;"
+      },
+      "id": "a80cf79b-c8d5-4f07-b31a-0973d496a5bf",
+      "name": "Format Results Table",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3264,
+        12272
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO our_db.automation.our_data_table (ANALYSIS_TYPE, NODE_NAME, ELEMENT, CVSS_SCORE, CONFIDENCE) \n  VALUES ('{{ $json[\"ANALYSIS_TYPE\"].replace(\"'\", \"''\") }}', '{{ $json[\"NODE_NAME\"].replace(\"'\", \"''\") }}', '{{ $json[\"ELEMENT\"].replace(\"'\", \"''\") }}', '{{ $json['CVSS_SCORE'] }}', '{{ $json['CONFIDENCE'] }}');"
+      },
+      "type": "n8n-nodes-base.snowflake",
+      "typeVersion": 1,
+      "position": [
+        3488,
+        12272
+      ],
+      "id": "eaa3b01b-6f44-49e4-a79e-cdca133189e3",
+      "name": "Snowflake4",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{$json[\"query\"]}}"
+      },
+      "type": "n8n-nodes-base.snowflake",
+      "typeVersion": 1,
+      "position": [
+        5296,
+        9744
+      ],
+      "id": "6557b3ff-8cf1-4708-8d84-369c9328f875",
+      "name": "Snowflake6",
+      "credentials": {
+        "snowflake": {
+          "id": "UTZvp9Yo5ShA2uxb",
+          "name": "Snowflake account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "pressure_points",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3984,
+        8032
+      ],
+      "id": "1de52716-3561-498c-8bb3-d786ca7286c0",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "vulnerability_categories",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        8480
+      ],
+      "id": "1ded4a49-78b7-4285-bd95-2e9c5575ca5f",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "attack_surfaces",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        8848
+      ],
+      "id": "9b1353a2-50d6-4dcf-8b24-ff4e050a9ecc",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "remediation",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        9216
+      ],
+      "id": "767a6ff3-09e8-4681-85eb-46466e3847e3",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "attack_chain",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        9552
+      ],
+      "id": "37c3d27b-bbd6-42e5-b804-7037ecc9b35f",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "risk_level",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        10112
+      ],
+      "id": "90b46a7b-45de-4d60-8973-d3256e9d320d",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "exploitation_methods",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        10576
+      ],
+      "id": "79faa03d-1abc-4e93-b42b-f2b9d78a5399",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "attack_vectors",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3968,
+        10944
+      ],
+      "id": "6916f6e3-2513-49f6-bfcf-8856c234becf",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "973d660c-218f-4040-8412-52c33b594150",
+              "name": "=data[0].column",
+              "value": "vulnerable_points",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3984,
+        11648
+      ],
+      "id": "79e26da0-7990-445b-9604-4e284a82207f",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function Node\n// Assumes input comes as an array in `items` with the structure you provided\n\nconst result = {};\n\nitems.forEach(item => {\n  const dataEntry = item.json.data[0]; // Access first element in data array\n  const columnName = dataEntry.column;\n  const sentimentData = dataEntry.sentimentAnalysis;\n\n  // Stringify sentimentAnalysis object\n  result[columnName] = JSON.stringify(sentimentData);\n});\n\n// Return as a single item so it can be used downstream\nreturn [{ json: result }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4800,
+        9456
+      ],
+      "id": "87d0c4cc-d6a1-4f1b-b468-b57669e5a967",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Assume items[0].json contains the object from previous step\nconst data = items[0].json;\n\n// Columns\nconst columns = Object.keys(data).join(\", \");\n\n// Values (stringified dictionaries, safely escaped for SQL)\nconst values = Object.values(data)\n  .map(v => `'${v.replace(/'/g, \"''\")}'`) // Snowflake uses single quotes, so escape them\n  .join(\", \");\n\n// Construct SQL\nconst sqlQuery = `INSERT INTO our_db.automation.our_data_table (${columns}) VALUES (${values});`;\n\n// Return the query so the Snowflake node can use it\nreturn [{ json: { query: sqlQuery } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4944,
+        9456
+      ],
+      "id": "e68ea044-1904-4905-804d-e1e13eac8f72",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return ({\n    \"dataType\": \"CVE_RECORD\",\n    \"dataVersion\": \"5.1\",\n    \"cveMetadata\": {\n        \"cveId\": \"CVE-2025-0049\",\n        \"assignerOrgId\": \"df4dee71-de3a-4139-9588-11b62fe6c0ff\",\n        \"state\": \"PUBLISHED\",\n        \"assignerShortName\": \"Fortra\",\n        \"dateReserved\": \"2024-11-27T18:20:36.029Z\",\n        \"datePublished\": \"2025-04-28T20:55:06.256Z\",\n        \"dateUpdated\": \"2025-04-28T22:28:10.671Z\"\n    },\n    \"containers\": {\n        \"cna\": {\n            \"affected\": [\n                {\n                    \"defaultStatus\": \"unaffected\",\n                    \"product\": \"GoAnywhere\",\n                    \"vendor\": \"Fortra\",\n                    \"versions\": [\n                        {\n                            \"lessThan\": \"7.8\",\n                            \"status\": \"affected\",\n                            \"version\": \"0\",\n                            \"versionType\": \"semver\"\n                        }\n                    ]\n                }\n            ],\n            \"descriptions\": [\n                {\n                    \"lang\": \"en\",\n                    \"supportingMedia\": [\n                        {\n                            \"base64\": false,\n                            \"type\": \"text/html\",\n                            \"value\": \"When a Web User without Create permission on subfolders attempts to upload a file to a non-existent directory, the error message includes the absolute server path which may allow&nbsp;Fuzzing for application mapping.<br><p>This issue affects GoAnywhere: before 7.8.0.</p>\"\n                        }\n                    ],\n                    \"value\": \"When a Web User without Create permission on subfolders attempts to upload a file to a non-existent directory, the error message includes the absolute server path which may allow Fuzzing for application mapping.\\nThis issue affects GoAnywhere: before 7.8.0.\"\n                }\n            ],\n            \"impacts\": [\n                {\n                    \"capecId\": \"CAPEC-215\",\n                    \"descriptions\": [\n                        {\n                            \"lang\": \"en\",\n                            \"value\": \"CAPEC-215 Fuzzing for application mapping\"\n                        }\n                    ]\n                }\n            ],\n            \"metrics\": [\n                {\n                    \"cvssV3_1\": {\n                        \"attackComplexity\": \"LOW\",\n                        \"attackVector\": \"NETWORK\",\n                        \"availabilityImpact\": \"NONE\",\n                        \"baseScore\": 3.5,\n                        \"baseSeverity\": \"LOW\",\n                        \"confidentialityImpact\": \"LOW\",\n                        \"integrityImpact\": \"NONE\",\n                        \"privilegesRequired\": \"LOW\",\n                        \"scope\": \"UNCHANGED\",\n                        \"userInteraction\": \"REQUIRED\",\n                        \"vectorString\": \"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:N/A:N\",\n                        \"version\": \"3.1\"\n                    },\n                    \"format\": \"CVSS\",\n                    \"scenarios\": [\n                        {\n                            \"lang\": \"en\",\n                            \"value\": \"GENERAL\"\n                        }\n                    ]\n                }\n            ],\n            \"problemTypes\": [\n                {\n                    \"descriptions\": [\n                        {\n                            \"cweId\": \"CWE-209\",\n                            \"description\": \"CWE-209 Generation of Error Message Containing Sensitive Information\",\n                            \"lang\": \"en\",\n                            \"type\": \"CWE\"\n                        }\n                    ]\n                }\n            ],\n            \"providerMetadata\": {\n                \"orgId\": \"df4dee71-de3a-4139-9588-11b62fe6c0ff\",\n                \"shortName\": \"Fortra\",\n                \"dateUpdated\": \"2025-04-28T20:55:06.256Z\"\n            },\n            \"references\": [\n                {\n                    \"tags\": [\n                        \"vendor-advisory\"\n                    ],\n                    \"url\": \"https://www.fortra.com/security/advisories/product-security/fi-2025-004\"\n                }\n            ],\n            \"solutions\": [\n                {\n                    \"lang\": \"en\",\n                    \"supportingMedia\": [\n                        {\n                            \"base64\": false,\n                            \"type\": \"text/html\",\n                            \"value\": \"Upgrade to GoAnywhere 7.8.0 or later.\"\n                        }\n                    ],\n                    \"value\": \"Upgrade to GoAnywhere 7.8.0 or later.\"\n                }\n            ],\n            \"source\": {\n                \"discovery\": \"UNKNOWN\"\n            },\n            \"title\": \"Disclosure of sensitive information in an error message in GoAnywhere prior to version 7.8.0\",\n            \"workarounds\": [\n                {\n                    \"lang\": \"en\",\n                    \"supportingMedia\": [\n                        {\n                            \"base64\": false,\n                            \"type\": \"text/html\",\n                            \"value\": \"This issue occurs when the Web User does not have Create permission on Subfolders. It is a bug that happens when a user tries to upload a file to a directory that doesn’t exist yet (If they have permissions to create sub directories, then the non-existent directory would be created automatically).<br><br>Note: This workaround requires supplying an additional permission that the Web User does not have in vulnerable configurations.&nbsp;\"\n                        }\n                    ],\n                    \"value\": \"This issue occurs when the Web User does not have Create permission on Subfolders. It is a bug that happens when a user tries to upload a file to a directory that doesn’t exist yet (If they have permissions to create sub directories, then the non-existent directory would be created automatically).\\n\\nNote: This workaround requires supplying an additional permission that the Web User does not have in vulnerable configurations.\"\n                }\n            ],\n            \"x_generator\": {\n                \"engine\": \"Vulnogram 0.2.0\"\n            }\n        },\n        \"adp\": [\n            {\n                \"metrics\": [\n                    {\n                        \"other\": {\n                            \"type\": \"ssvc\",\n                            \"content\": {\n                                \"timestamp\": \"2025-04-28T22:28:02.231778Z\",\n                                \"id\": \"CVE-2025-0049\",\n                                \"options\": [\n                                    {\n                                        \"Exploitation\": \"none\"\n                                    },\n                                    {\n                                        \"Automatable\": \"no\"\n                                    },\n                                    {\n                                        \"Technical Impact\": \"partial\"\n                                    }\n                                ],\n                                \"role\": \"CISA Coordinator\",\n                                \"version\": \"2.0.3\"\n                            }\n                        }\n                    }\n                ],\n                \"title\": \"CISA ADP Vulnrichment\",\n                \"providerMetadata\": {\n                    \"orgId\": \"134c704f-9b21-4f2e-91b3-4a467353bcc0\",\n                    \"shortName\": \"CISA-ADP\",\n                    \"dateUpdated\": \"2025-04-28T22:28:10.671Z\"\n                }\n            }\n        ]\n    }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2528,
+        9440
+      ],
+      "id": "77028006-cc37-4af6-adbe-d5047b954a03",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        9440
+      ],
+      "id": "0f2c0c79-2341-40e7-8444-aec29482b405",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "scott-cjx",
+          "mode": "list",
+          "cachedResultName": "scott-cjx",
+          "cachedResultUrl": "https://github.com/scott-cjx"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "temp_cve_jsons",
+          "mode": "list",
+          "cachedResultName": "temp_cve_jsons",
+          "cachedResultUrl": "https://github.com/scott-cjx/temp_cve_jsons"
+        },
+        "filePath": "=",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        2560,
+        9184
+      ],
+      "id": "b51ceec8-0243-483b-8c84-d6b0a4f653e1",
+      "name": "Get a file",
+      "webhookId": "2dd9f2b1-63ee-4673-975a-5aa189a30664",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "4TKcFUHFgpPPB1fv",
+          "name": "GitHub account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Works in both Function and Function Item nodes\n\nconst owner = 'scott-cjx';\nconst repo = 'temp_cve_jsons';\nconst branch = 'main';\n\n// Get all incoming items regardless of node type\nconst allItems = $input.all();\nconst input = allItems[0].json;\n\nconst tree = input.tree || input.body?.tree || [];\n\nif (!Array.isArray(tree) || tree.length === 0) {\n  throw new Error('No \"tree\" array found in input — check previous node output');\n}\n\nconst results = tree\n  .filter(f => f.type === 'blob' && /CVE-\\d{4}-\\d+\\.json$/i.test(f.path))\n  .map(f => ({\n    path: f.path,\n    url: `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${f.path}`\n  }));\n\nreturn results.map(r => ({ json: r }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2112,
+        9024
+      ],
+      "id": "ea376e57-522e-4934-ad6e-a8a7de365baf",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/scott-cjx/temp_cve_jsons/git/trees/main?recursive=1",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1904,
+        9248
+      ],
+      "id": "28527958-8cff-4cca-abe6-52174ca77e99",
+      "name": "HTTP Request",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "4TKcFUHFgpPPB1fv",
+          "name": "GitHub account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 100,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2320,
+        9104
+      ],
+      "id": "0a6d6066-fe4a-4574-a64e-60ffb7040b26",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "risk_level",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "exploitation_methods",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "attack_vectors",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "attack_chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "vulnerability_categories",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "remediation",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "attack_surfaces",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "pressure_points",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "risk_level": {
+      "main": [
+        [
+          {
+            "node": "Aggregate7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "attack_chain": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "vulnerable_points",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "remediation": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vulnerability_categories": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pressure_points": {
+      "main": [
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "attack_surfaces": {
+      "main": [
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "exploitation_methods": {
+      "main": [
+        [
+          {
+            "node": "Aggregate8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "attack_vectors": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate5": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate7": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate8": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate6": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Snowflake1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "Snowflake2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snowflake1": {
+      "main": [
+        [
+          {
+            "node": "Set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snowflake3": {
+      "main": [
+        [
+          {
+            "node": "Snowflake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vulnerable_points": {
+      "main": [
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snowflake": {
+      "main": [
+        [
+          {
+            "node": "Snowflake5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results Table": {
+      "main": [
+        [
+          {
+            "node": "Snowflake4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Edit Fields6": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 8
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Snowflake6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "attack_chain",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "pressure_points",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "vulnerability_categories",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "attack_surfaces",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "remediation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "risk_level",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "exploitation_methods",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "attack_vectors",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "vulnerable_points",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snowflake6": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "09223ccf-69bc-412f-a2e9-afe06c4d012e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9ed36ee774daa1f75dcc2579e72bd87ff92f52150ba635fd918f838839d971bf"
+  },
+  "id": "sCRf79ZAyKeEMFQq",
+  "tags": []
+}
