@@ -29,13 +29,13 @@ An enterprise B2B software suite that performs authorized, automated security as
 ---
 
 
-### Ingest & ETL pipeline (1)
+### Pipeline 1
 ![ETL pipeline - part 1](assets/pipeline1.jpeg)  
 **Description:** High-level ETL flow showing external vulnerability feeds (CVE/NVD, vendor advisories), internal scanner outputs, and jobs that normalize and load data into Snowflake.
 
 ---
 
-### Ingest & ETL pipeline (2)
+### Pipeline 2
 ![ETL pipeline - part 2](assets/pipeline2.jpeg)  
 **Description:** Detailed pipeline diagram covering enrichment steps (CVSS scoring, asset-context enrichment), alerting hooks, and downstream consumers (prioritization model, UI, remediation orchestrator).
 
