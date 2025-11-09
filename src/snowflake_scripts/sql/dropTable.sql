@@ -1,0 +1,1 @@
+DROP TABLE our_db.automation.our_data_table;
